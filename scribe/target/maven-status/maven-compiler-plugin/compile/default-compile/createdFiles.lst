@@ -1,0 +1,8 @@
+io/spring/sample/scribe/markdown/MarkdownRendererHealthIndicator.class
+io/spring/sample/scribe/markdown/MarkdownRenderer.class
+io/spring/sample/scribe/ScribeApplication.class
+io/spring/sample/scribe/ScribeDocument.class
+io/spring/sample/scribe/spell/DictionaryLoader.class
+io/spring/sample/scribe/EditorController.class
+io/spring/sample/scribe/spell/Typo.class
+io/spring/sample/scribe/spell/SpellChecker.class

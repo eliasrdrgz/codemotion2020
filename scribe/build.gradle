@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'io.github.resilience4j:resilience4j-circuitbreaker'
+
+	runtimeOnly 'org.webjars:webjars-locator-core'
+	runtimeOnly 'org.webjars.npm:bulma'
+	
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}
+
+bootJar {
+	layered {
+		application {
+			intoLayer("spring-boot-loader") {
+				include "org/springframework/boot/loader/**"
+			}
+			intoLayer("application")
+		}
+		dependencies {
+			intoLayer("webjars") {
+				include "org.webjars.npm*:*:*"
+			}
+			intoLayer("dependencies")
+		}
+		layerOrder = ["dependencies", "spring-boot-loader", "webjars", "application"]
+	}
+}
